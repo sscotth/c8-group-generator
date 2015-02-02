@@ -9,7 +9,7 @@ function getUpdateAndSplit(){
   var count = $input.val();
 
   $ul.empty();
-  getJSON(url, function(res){
+  $.get(url, function(res){
     var chunkedStudents = chunkData(res['c8-students'], count);
     $ul.append(createList(chunkedStudents));
   });
@@ -42,15 +42,3 @@ function createList(array) {
   return groupList;
 }
 
-function getJSON(url, cb) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', url);
-
-  xhr.onload = function () {
-    if (this.status >= 200 && this.status < 400) {
-      cb(JSON.parse(this.response));
-    }
-  };
-
-  xhr.send()
-}
