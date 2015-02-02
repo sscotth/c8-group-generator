@@ -1,3 +1,5 @@
+/* global $: false, _: false */
+
 (function(){
   'use strict';
 
@@ -6,7 +8,7 @@
       url = 'https://yspuku7qvh9u4cr3.firebaseio.com/.json';
 
   $(function() {
-    $input = $('input'),
+    $input = $('input');
     $ul    = $('ul');
 
     $input.change(getUpdateAndSplit);
@@ -21,7 +23,7 @@
       var chunkedStudents = chunkData(res['c8-students'], count);
       $ul.append(createList(chunkedStudents));
     });
-  };
+  }
 
   function chunkData(data, count){
     return _(data)
