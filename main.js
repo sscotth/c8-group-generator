@@ -1,12 +1,12 @@
-var input = $('input'),
+var $input = $('input'),
     ul    = document.querySelector('ul'),
     url   = 'https://yspuku7qvh9u4cr3.firebaseio.com/.json';
 
-input.change(getUpdateAndSplit);
+$input.change(getUpdateAndSplit);
 document.addEventListener('DOMContentLoaded', getUpdateAndSplit);
 
 function getUpdateAndSplit(){
-  var count = input.val();
+  var count = $input.val();
 
   ul.innerHTML = '';
   getJSON(url, function(res){
