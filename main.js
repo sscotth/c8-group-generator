@@ -1,6 +1,6 @@
 var $input = $('input'),
-    ul    = document.querySelector('ul'),
-    url   = 'https://yspuku7qvh9u4cr3.firebaseio.com/.json';
+    $ul    = $('ul'),
+    url    = 'https://yspuku7qvh9u4cr3.firebaseio.com/.json';
 
 $input.change(getUpdateAndSplit);
 document.addEventListener('DOMContentLoaded', getUpdateAndSplit);
@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', getUpdateAndSplit);
 function getUpdateAndSplit(){
   var count = $input.val();
 
-  ul.innerHTML = '';
+  $ul.empty();
   getJSON(url, function(res){
     var chunkedStudents = chunkData(res['c8-students'], count);
-    ul.appendChild(createList(chunkedStudents));
+    $ul.append(createList(chunkedStudents));
   });
 };
 
