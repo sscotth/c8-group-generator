@@ -26,22 +26,20 @@ function chunkData(data, count){
 }
 
 function createList(array) {
-  var docFragment = document.createDocumentFragment();
+  var groupList = [];
 
   _.forEach(array, function(team){
-    var ol = document.createElement('ol');
+    var $ol = $('<ol></ol>');
 
     _.forEach(team, function(teamMember){
-      var li = document.createElement('li');
-      var text = document.createTextNode(teamMember);
-      li.appendChild(text);
-      ol.appendChild(li);
-    })
+      var $li = $('<li>' + teamMember +'</li>');
+      $ol.append($li);
+    });
 
-    docFragment.appendChild(ol);
-  })
+    groupList.push($ol);
+  });
 
-  return docFragment;
+  return groupList;
 }
 
 function getJSON(url, cb) {
