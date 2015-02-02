@@ -2,15 +2,13 @@ var $input,
     $ul,
     url = 'https://yspuku7qvh9u4cr3.firebaseio.com/.json';
 
-$(document).ready(init);
-
-function init() {
+$(function() {
   $input = $('input'),
   $ul    = $('ul');
 
   $input.change(getUpdateAndSplit);
   getUpdateAndSplit();
-}
+});
 
 function getUpdateAndSplit(){
   var count = $input.val();
